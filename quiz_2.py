@@ -7,7 +7,12 @@ def show_question(question, options):
     print("Entrez une réponse:")
 
     answer = input()
-    if options[answer]:
+    try:
+        is_correct = options[answer]
+    except KeyError:
+        is_correct = False
+
+    if is_correct:
         print("Bravo!")
         return True
     else:
