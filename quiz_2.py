@@ -1,6 +1,7 @@
 def show_question(question, correct_answer, options):
     print(question)
-    print(options)
+    for option in options:
+        print("- " + option)
 
     print("Entrez une réponse:")
     answer = input()
