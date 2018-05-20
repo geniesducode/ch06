@@ -1,11 +1,13 @@
-def show_question(question, correct_answer, options):
+def show_question(question, options):
     print(question)
+
     for option in options:
         print("- " + option)
 
     print("Entrez une réponse:")
+
     answer = input()
-    if answer == correct_answer:
+    if options[answer]:
         print("Bravo!")
         return True
     else:
@@ -14,12 +16,12 @@ def show_question(question, correct_answer, options):
 
 score = 0
 questions = [
-    ["Quelle est la vitesse de pointe d'un thon?", "80 km/h", ["20 km/h", "40 km/h", "80 km/h"]],
-    ["Les poissons ont-ils tous des écailles?", "Non", ["Oui", "Non"]]
+    ["Quelle est la vitesse de pointe d'un thon?", {"20 km/h": False, "40 km/h": False, "80 km/h": True}],
+    ["Les poissons ont-ils tous des écailles?", {"Oui": False, "Non": True}]
 ]
 
 for question in questions:
-    is_correct = show_question(question[0], question[1], question[2])
+    is_correct = show_question(question[0], question[1])
 
     if is_correct:
         score += 1
