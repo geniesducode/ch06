@@ -9,18 +9,19 @@ def show_question(question, correct_answer, options):
         print("Bravo!")
         return True
     else:
-        print("La réponse n'est pas correcte, la bonne réponse était " + correct_answer)
+        print("La réponse n'est pas correcte")
         return False
 
 score = 0
-is_correct = show_question("Quelle est la vitesse de pointe d'un thon?", "80 km/h", ["20 km/h", "40 km/h", "80 km/h"])
+questions = [
+    ["Quelle est la vitesse de pointe d'un thon?", "80 km/h", ["20 km/h", "40 km/h", "80 km/h"]],
+    ["Les poissons ont-ils tous des écailles?", "Non", ["Oui", "Non"]]
+]
 
-if is_correct:
-    score += 1
+for question in questions:
+    is_correct = show_question(question[0], question[1], question[2])
 
-is_correct = show_question("Les poissons ont-ils tous des écailles?", "Non", ["Oui", "Non"])
+    if is_correct:
+        score += 1
 
-if is_correct:
-    score += 1
-
-print("Vous avez répondu correctement à " + str(score) + " questions sur 2")
+print("Vous avez répondu correctement à " + str(score) + " questions sur " + str(len(questions)))
