@@ -28,7 +28,19 @@ class Question:
             print("La réponse n'est pas correcte")
             return False
 
-question = Question("Quelle est la vitesse de pointe d'un thon?", [
-    Option("40 km/h"), Option("60 km/h"), Option("80 km/h", True)
-])
-question.show()
+questions = [
+    Question("Quelle est la vitesse de pointe d'un thon?",
+              [Option("20 km/h"), Option("40 km/h"),
+               Option("80 km/h", True)]),
+    Question("Les poissons ont-ils tous des écailles?",
+              [Option("Oui"), Option("Non", True)])
+]
+
+score = 0
+for question in questions:
+    is_correct = question.show()
+    if is_correct:
+        score += 1
+
+print("Vous avez répondu correctement à " + str(score) +
+      " questions sur " + str(len(questions)))
