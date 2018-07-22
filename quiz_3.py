@@ -15,9 +15,20 @@ class Question:
 
         return False
 
+    def show(self):
+        print(self.label)
+        for option in self.options:
+            print("- " + option.label)
+        print("Entrez une réponse:")
+        answer = input()
+        if self.is_correct(answer):
+            print("Bravo!")
+            return True
+        else:
+            print("La réponse n'est pas correcte")
+            return False
+
 question = Question("Quelle est la vitesse de pointe d'un thon?", [
     Option("40 km/h"), Option("60 km/h"), Option("80 km/h", True)
 ])
-print(question.is_correct("100 km/h"))
-print(question.is_correct("60 km/h"))
-print(question.is_correct("80 km/h"))
+question.show()
