@@ -14,3 +14,10 @@ class Question:
                 return option.correct
 
         return False
+
+question = Question("Quelle est la vitesse de pointe d'un thon?", [
+    Option("40 km/h"), Option("60 km/h"), Option("80 km/h", True)
+])
+print(question.is_correct("100 km/h"))
+print(question.is_correct("60 km/h"))
+print(question.is_correct("80 km/h"))
