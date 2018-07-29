@@ -9,8 +9,10 @@ class Question:
         self.options = options
 
     def is_correct(self, answer):
+        answer = answer.lower()
+
         for option in self.options:
-            if option.label == answer:
+            if option.label.lower() == answer:
                 return option.correct
 
         return False
