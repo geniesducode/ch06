@@ -42,5 +42,7 @@ for question in questions:
     if is_correct:
         score += 1
 
+score_percentage = int(score / len(questions) * 100)
 print("Vous avez répondu correctement à " + str(score) +
       " questions sur " + str(len(questions)))
+print("Ce qui fait un score de " + str(score_percentage) + "%")
