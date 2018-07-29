@@ -27,8 +27,13 @@ class Question:
             print("Bravo!")
             return True
         else:
-            print("La réponse n'est pas correcte")
+            print("La réponse n'est pas correcte. La bonne réponse était " + self.get_correct_answer().label)
             return False
+
+    def get_correct_answer(self):
+        for option in self.options:
+            if option.correct:
+                return option
 
 questions = [
     Question("Quelle est la vitesse de pointe d'un thon?",
